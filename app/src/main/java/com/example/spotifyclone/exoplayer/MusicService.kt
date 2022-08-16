@@ -141,7 +141,7 @@ class MusicService : MediaBrowserServiceCompat() {
         when (parentId) {
             MEDIA_ROOT_ID -> {
                 val resultsSent = firebaseMusicSource.whenReady { isInitialized ->
-                    if (isPlayerInitialized) {
+                    if (isInitialized) {
                         result.sendResult(firebaseMusicSource.asMediaItems())
                         if (!isInitialized && firebaseMusicSource.songs.isNotEmpty()) {
                             preparePlayer(

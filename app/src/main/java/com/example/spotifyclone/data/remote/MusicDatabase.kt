@@ -13,6 +13,8 @@ class MusicDatabase {
     suspend fun getAllSongs(): List<Song> {
         return try {
             songCollection.get().await().toObjects(Song::class.java)
+
+
         } catch (e: Exception) {
             emptyList()
         }
